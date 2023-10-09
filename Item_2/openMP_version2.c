@@ -118,7 +118,7 @@ int somarVivos(float ***grid)
         {
             if ((*grid)[i][j] != 0.0)
             {
-                #pragma omp critical
+#pragma omp critical
                 totalVivos += 1;
             }
         }
@@ -248,7 +248,7 @@ int main()
         zerarMatriz(&newGrid);
 
         int resultado = somarVivos(&grid);
-        // printf("\nRESULTADO DA GERACAO(%i) = %i", i + 1, resultado);
+        printf("\nRESULTADO DA GERACAO(%i) = %i", i + 1, resultado);
     }
 
     // Final da parte paralela

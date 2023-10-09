@@ -4,7 +4,7 @@
 #include <omp.h>
 
 #define forever 100000000 // 10^8
-#define num_clients 4
+#define num_clients 2
 
 volatile int request = 0, respond = 0;
 volatile int sum = 0;
@@ -18,10 +18,12 @@ void client_function(int i)
         // Non-critical section (omitted)
 
         // Pre-protocol
+        /*
         while (respond != i)
         {
             request = i;
         }
+        */
 
         // Critical section
         int local = sum;
