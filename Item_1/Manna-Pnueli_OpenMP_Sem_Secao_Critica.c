@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <omp.h>
 
-#define forever 100000000 // 10^8
+#define forever 100 // 10^8
 #define num_clients 2
 
 volatile int request = 0, respond = 0;
@@ -30,7 +30,7 @@ void client_function(int i)
         sleep(rand() % 2);
         sum = local + 1;
 
-        printf("Final sum: %d\n", sum);
+        printf("Soma: %d\n", sum);
 
         // Post-protocol
         respond = 0;
