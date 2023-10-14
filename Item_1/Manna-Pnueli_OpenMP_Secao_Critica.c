@@ -15,8 +15,6 @@ void client_function(int i)
 
     while (aux < forever)
     {
-        // Non-critical section (omitted)
-
         // Pre-protocol
         while (respond != i)
         {
