@@ -160,9 +160,28 @@ This section focuses on the implementation of summation tasks in OpenMP. Two app
 
 ### Compilation and Execution
 To compile and execute the code, use the following commands:
-```bash
+```
 gcc -o version1 openMP_version1.c -fopenmp
 gcc -o version2 openMP_version2.c -fopenmp
 
 ./version1
 ./version2
+```
+
+---
+
+## Item 3 - Critical Sections in Java
+
+### Objective
+This section aims in the implementation of a critical section for an existing Java program. The program consists in a GUI, with buttons to spawn cars in the left or rigth side os the screen. In the original, the cars can crash -  represented by them passing through - into each other. Here we implemented a critical section code to avoid the crash, making cars wait for others to pass until their time comes.
+
+### Code Files
+All code files (.java) are inside the `code` directory.
+
+### Compilation and Execution
+Compile all the .java files with `javac <file_name.java>` them,
+
+Execute with `java Main`
+
+## Result
+A GIF with the actual critical section working can be found in the root directory `Item_3/`.
