@@ -155,8 +155,8 @@ gcc -o Sem_Secao_Critica Manna-Pnueli_OpenMP_Sem_Secao_Critica.c -fopenmp
 This section focuses on the implementation of summation tasks in OpenMP. Two approaches are provided: one using the `#pragma omp critical` directive and another using OpenMP's reduction clause. Performance metrics such as processing time and speedup for 1, 2, 4, and 8 threads are evaluated.
 
 ### Code Files
-- `openMP_version1.c` (using `#pragma omp critical`)
-- `openMP_version2.c` (using `#pragma omp for reduction`)
+- `openMP_version1.c` (using `#pragma omp for reduction`)
+- `openMP_version2.c` (using `#pragma omp critical`)
 
 ### Compilation and Execution
 To compile and execute the code, use the following commands:
