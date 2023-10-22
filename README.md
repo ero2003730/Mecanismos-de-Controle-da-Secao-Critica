@@ -158,6 +158,29 @@ This section focuses on the implementation of summation tasks in OpenMP. Two app
 - `openMP_version1.c` (using `#pragma omp for reduction`)
 - `openMP_version2.c` (using `#pragma omp critical`)
 
+### Methods used
+
+#### #pragma omp for reduction
+The reduction clause in OpenMP allows multiple threads to contribute to a reduction operation on a variable. This operation is thread-safe and generally performs well.
+
+#### #pragma omp critical
+The #pragma omp critical directive ensures that the block of code that follows will be executed by only one thread at a time. This is useful for protecting accesses to shared resources but can result in a bottleneck if the code block is large or if many threads try to access it.
+
+### Results
+| Type              | Number of Threads | Time (Seconds) | Iterations | Speedup |
+|-------------------|-------------------|----------------|------------|---------|
+| openMP - reduction| 1                 | 287.907        | 2000       | 1       |
+| openMP - reduction| 2                 | 153.085        | 2000       | 1.8807  |
+| openMP - reduction| 4                 | 87.616         | 2000       | 3.2860  |
+| openMP - reduction| 8                 | 89.707         | 2000       | 3.2094  |
+| openMP - critical | 1                 | 315.217        | 2000       | 1       |
+| openMP - critical | 2                 | 176.787        | 2000       | 1.7830  |
+| openMP - critical | 4                 | 98.677         | 2000       | 3.1944  |
+| openMP - critical | 8                 | 93.936         | 2000       | 3.3556  |
+
+### Conclusions
+Based on the results, it's evident that the method using #pragma omp for reduction is more efficient in terms of processing time and speedup, especially as the number of threads increases. On the other hand, the method using #pragma omp critical shows lesser efficiency and may result in a bottleneck when used with a higher number of threads.
+
 ### Compilation and Execution
 To compile and execute the code, use the following commands:
 ```
@@ -185,3 +208,7 @@ Execute with `java Main`
 
 ## Result
 A GIF with the actual critical section working can be found in the root directory `Item_3/`.
+
+## Demonstrative Video
+
+A 6-minute video with a detailed explanation and demonstration of the results can be found [here](https://www.youtube.com/watch?si=IU7t632dPzkyN9jp&v=uEAlfSUMUMM&feature=youtu.be).
